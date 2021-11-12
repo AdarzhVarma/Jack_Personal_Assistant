@@ -26,10 +26,7 @@ import json
 from nltk.tokenize import word_tokenize
 from newsapi import NewsApiClient
 import ctypes
-
-
-
-
+import time
 
 
 engine=pyttsx3.init()
@@ -44,12 +41,12 @@ def getvoices(voice):
     if voice==1:
         engine.setProperty('voice',voices[0].id)
         speak("Welcome back !")
-        speak("jack at your service, please tell me how can i help you?")
+        speak("Nyx at your service, please tell me how can i help you?")
 
     if voice==2:
         engine.setProperty('voice',voices[1].id)
         speak("Welcome back !")
-        speak("iris at your service, please tell me how can i help you?")
+        speak("Iris at your service, please tell me how can i help you?")
         
     
 
@@ -74,13 +71,13 @@ def greeting():
     elif hour >= 12 and hour <18:
         speak(" Good afternoon !")
     elif hour >= 18 and hour <24:
-        speak(" Good evening sir!")
+        speak(" Good evening !")
     else:
-        speak(" Good Night sir!")
+        speak(" Good Night !")
 def wishme():
     greeting()
     speak("Welcome back !")
-    speak("jack at your service, please tell me how can i help you?")
+    speak("Iris at your service, please tell me how can i help you?")
 
 #wishme()
 
@@ -90,9 +87,6 @@ def wishme():
 #     speak(audio)
 
     #getvoices(voice)
-
-
-
 
 def takeCommandCMD():
     query=input("Please Tell Me how can i help you?\n")
@@ -135,21 +129,10 @@ def sendwhatsmsg(phone_no, message):
     pyautogui.press('enter')
 
 
-
-
-
 def text2speech():
     text = clipboard.paste()
     print(text)
     speak(text)
-
-# def covid():
-#     r = requests.get('https://coronavirus-19-api.herokuapp.com/all') 
-
-#     data = r.json()
-#     covid_data = f'Confirmed Cases :{data["Cases"]} \n Deaths :{data["deaths"]}  \n Recovered {data["Recovered"]}'
-#     print(covid_data)
-#     speak(covid_data)
 
 def screenshot():
     name_img= tt.tt()
@@ -162,8 +145,6 @@ def passwordgen():
     s2 = string.ascii_lowercase
     s3 = string.digits
     s4 = string.punctuation
-
-
     passlen = 8
     s = []
     s.extend(list(s1))
@@ -184,14 +165,13 @@ def cpu():
     speak(battery.percent)
     
 if __name__=="__main__":
-    getvoices(1)
-    wakeword= "jack"
+    getvoices(2)
+    wakeword= "iris"
     while True:
         query = takeCommandMic().lower()
         query=word_tokenize(query)
-        #print(query)
         if wakeword in query:
-        
+            
             if 'time' in query:
                 time()
             elif 'date' in query:
@@ -279,21 +259,18 @@ if __name__=="__main__":
             elif 'read' in query:
                 text2speech()
             
-            # elif 'covid' in query:
-            #     jsonObj = urlopen('https://coronavirus-19-api.herokuapp.com/all') 
-            #     data = json.load(jsonObj)
-                
-            #     i = 1
+            elif 'covid' in query:
+                jsonObj = urlopen('https://coronavirus-19-api.herokuapp.com/all') 
+                data = json.load(jsonObj)
+                 
+                speak('Covid Updates')
                     
-            #     speak('Covid Updates')
-                    
-                    
-            #     for item in data['data']:
+                # for item in data['data']:
                         
-            #         print(str(i) + '. ' + item['deaths'] + '\n')
-            #         print(item['cases'] + '\n')
-            #         speak(str(i) + '. ' + item['Recovered'] + '\n')
-            #         i += 1
+                speak("deaths"+str(data['deaths']) + '\n')
+                speak("cases"+str(data['cases']) + '\n')
+                speak("recovered"+ str(data['recovered']) + '\n')
+        
                 
             elif 'lock' in query:
                 speak("locking the device")
@@ -356,6 +333,7 @@ if __name__=="__main__":
                 print("TEAM Optimize Prime - For REVA Hack 2021")
 
             elif 'goodbye' in  query:
-                speak("Jack logging off")
+                speak("Iris logging off")
                 speak("thank you for giving me your time")
                 quit() 
+            
