@@ -46,7 +46,7 @@ def getvoices(voice):
     if voice==2:
         engine.setProperty('voice',voices[1].id)
         speak("Welcome back !")
-        speak("Iris at your service, please tell me how can i help you?")
+        speak("Jack at your service, please tell me how can i help you?")
         
     
 
@@ -77,7 +77,7 @@ def greeting():
 def wishme():
     greeting()
     speak("Welcome back !")
-    speak("Iris at your service, please tell me how can i help you?")
+    speak("Jack at your service, please tell me how can i help you?")
 
 #wishme()
 
@@ -165,8 +165,8 @@ def cpu():
     speak(battery.percent)
     
 if __name__=="__main__":
-    getvoices(2)
-    wakeword= "iris"
+    getvoices(1)
+    wakeword= "jack"
     while True:
         query = takeCommandMic().lower()
         query=word_tokenize(query)
@@ -245,7 +245,7 @@ if __name__=="__main__":
                     i = 1
                     
                     speak('here are some top news')
-                    print('''=============== TIMES OF INDIA ============'''+ '\n')
+                    print(''' TIMES OF INDIA '''+ '\n')
                     
                     for item in data['articles']:
                         
@@ -305,14 +305,19 @@ if __name__=="__main__":
             elif 'password' in query:
                 passwordgen()  
     
-            elif 'stackoverflow' in query:
+            elif 'stackoverflow' in query or 'stack overflow' in query:
                 speak("Here you go. Happy coding")
                 wb.open("https://stackoverflow.com")
 
-            elif 'stack overflow' in query:
-                speak("Here you go. Happy coding")
-                wb.open("https://stackoverflow.com")
-
+            elif 'depressed' in query or 'sad' in query or 'depression' in query:
+                speak(" Feeling down from time to time is a normal part of life. No matter how hopeless you feel, you can get better.  ")
+                speak(" Talk to a doctor or counselor about how you’re feeling.")
+                speak("Do want to listen to your favourite songs?")
+                wb.open("https://www.youtube.com/watch?v=1ZYbU82GVz4")
+                print(" You Got This mate")
+                
+            
+            
             elif 'how are you' in query:
                 speak("I am fine, Thank you")
                 speak("How are you?")
@@ -323,7 +328,7 @@ if __name__=="__main__":
             elif 'shut down' in query:
                 speak("Hold On! Your system is shutting down")
                 subprocess.call('shutdown / p /f')
-            
+  
             elif "restart" in query:
                 subprocess.call(["shutdown", "/r"])
                 
@@ -333,7 +338,7 @@ if __name__=="__main__":
                 print("TEAM Optimize Prime - For REVA Hack 2021")
 
             elif 'goodbye' in  query:
-                speak("Iris logging off")
+                speak("Jack logging off")
                 speak("thank you for giving me your time")
                 quit() 
             
