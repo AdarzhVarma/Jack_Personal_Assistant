@@ -1,6 +1,6 @@
 # Jack Personal Assistant
 
-Iris personal assistant is an interactive voice assistant which has the following functions:
+JAck personal assistant is an interactive voice assistant which has the following functions:
 
 FEATURES OF IRIS/NYX
 - Weather
