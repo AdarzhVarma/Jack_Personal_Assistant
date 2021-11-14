@@ -2,7 +2,7 @@
 
 JAck personal assistant is an interactive voice assistant which has the following functions:
 
-FEATURES OF IRIS/NYX
+FEATURES 
 - Weather
 - Date, Time
 - Password generation
