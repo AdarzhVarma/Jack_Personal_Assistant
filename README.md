@@ -21,6 +21,6 @@ STEPS TO RUN
 - Download NLTK Libraries
 - Install dependencies using from pip install
 - Run the python 3.9 interpreter
-- Give voice commands to Iris/Nyx mentioning the assistant name
+- Give voice commands mentioning the assistant name
 
 
